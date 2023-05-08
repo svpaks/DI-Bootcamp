@@ -1,0 +1,80 @@
+.item {
+  display: inline-block;
+  position: relative;
+  /* width: 50px; */
+  /* padding: 100px; */
+  border: 1px solid;
+}
+
+img {
+  display: block;
+  /* margin-left: auto;
+  margin-right: auto; */
+  height: 300px;
+  width: auto;
+}
+
+/* .circle {
+  position: absolute;
+  top: 9px;
+  left: 0px;
+  color: rgb(173, 31, 31);
+} */
+
+.new {
+  display: block;
+  position: absolute;
+  /* margin-left: 30px;
+  margin-right: 10px; */
+  top: 5px;
+  left: 20px;
+  color: rgb(53, 6, 183);
+}
+
+/* .AboutItem {
+  position: relative;
+} */
+.circlediscount {
+  position: absolute;
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* top: 110px;
+  left: 260px; */
+  right: 0;
+  top: 5px;
+  background-color: green;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+}
+
+/* .discount {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 5px;
+  left: 20px;
+  color: white;
+} */
+
+p {
+  text-align: center;
+}
+
+.pricewithdiscount {
+  color: green;
+}
+.price {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: rgb(222, 16, 16);
+}
+
+.button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}

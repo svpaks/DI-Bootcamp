@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+header {
+  background-color: black;
+  /* border: 15px solid black;
+  position: fixed; */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+body {
+  background-image: url(Thor.png);
+  background-size: cover;
+}
+
+img {
+  width: 50px;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 25px;
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  font-size: 40px;
+  font-family: "Courier New", Courier, monospace;
+  color: aliceblue;
+  text-decoration: none;
+}
+
+.text {
+  margin-top: 20%;
+  font-family: "Courier New", Courier, monospace;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+p {
+  font-size: 20px;
+  color: aliceblue;
+}
