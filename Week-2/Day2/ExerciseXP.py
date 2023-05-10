@@ -141,8 +141,16 @@ all_toppings = ["tomato", "cheese", "pineapple"]
 
 words = ['PYTHON', 'JOHN', 'HAM', 'DOE']
 
+
 if "PYTHON" in words :
     print("I love python")
+
+"hello"in "hello world" #True
+
+sentence = input("give me another one")
+
+# ehile True :
+if "a" 
 
 
 
