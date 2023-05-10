@@ -116,6 +116,38 @@ else:
 # DON'T
 
 
+topping_user = input("give me a pizza topping") #"tomato"
+# topping_user = tomato
+all_toppings = []
+total = 10
+
+while topping_user != "quit" :
+    print(f"{topping_user} will be added to the pizza")
+    all_toppings.append(topping_user)
+    topping_user = input("give me a pizza topping")
+
+str_toppings = " - ".join(all_toppings) #create a string all elements ...
+complete_total = total + len(all_toppings) * 2.5
+sentence = f"Here are your toppings {str_toppings} it will cost you {total}"
+print(sentence)
+
+
+print(f"") 
+
+
+all_toppings = ["tomato", "cheese", "pineapple"]
+"tomato - cheese - pineapple"
+
+
+words = ['PYTHON', 'JOHN', 'HAM', 'DOE']
+
+if "PYTHON" in words :
+    print("I love python")
+
+
+
+
+
 # Exercise 9: Cinemax
 # Instructions
 # A movie theater charges different ticket prices depending on a person’s age.
