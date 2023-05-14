@@ -126,7 +126,6 @@ brand["number_stores"] = 2
 print(brand)
 
 #4
-print(f"Zara's clients are {brand['type_of_clothes']}")
 clients = ", ".join(brand["type_of_clothes"])
 print(f"Zara's clients are {clients}.")
 

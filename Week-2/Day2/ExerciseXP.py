@@ -7,7 +7,7 @@
 # Concatenate my_fav_numbers and friend_fav_numbers to a new variable called our_fav_numbers.
 
 
-my_fav_numbers = [5, 11, 19, 27, 33, 49]
+my_fav_numbers = (5, 11, 19, 27, 33, 49)
 my_fav_numbers.insert(2, 67)
 print(my_fav_numbers)
 my_fav_numbers.insert(5, 89)
@@ -20,7 +20,7 @@ l = len(my_fav_numbers)
 my_fav_numbers.pop(l-3)
 print(my_fav_numbers)
 
-friend_fav_numbers = [13, 21, 55, 44]
+friend_fav_numbers = (13, 21, 55, 44)
 print(friend_fav_numbers)
 our_fav_numbers = my_fav_numbers + friend_fav_numbers
 print(our_fav_numbers)
@@ -64,10 +64,10 @@ print(basket)
 #   1. Recap – What is a float? What is the difference between an integer and a float?
 #      - integer is a data type for working with integers, and float is for working with floating point numbers.
 #   2. Can you think of another way to generate a sequence of floats?
-#      - I don't know.
 #   3. Create a list containing the following sequence 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5 (don’t hard-code the sequence).
-#      - I don't know.
 
+float_list = [num * 0.5 for num in range(3, 11)]
+print(float_list)
 
 # Exercise 5: For Loop
 # Instructions
@@ -85,7 +85,15 @@ for number in range(1, 21) :
 # Exercise 6 : While Loop
 # Instructions
 # Write a while loop that will continuously ask the user for their name, unless the input is equal to your name.
-# DON'T
+
+user_name = " "
+my_name = "Svetlana"
+while user_name != my_name:
+   user_name = input("Please, write your name.")
+   if user_name == my_name:
+       break
+print(user_name)
+
 
 # Exercise 7: Favorite Fruits
 # Instructions
@@ -113,46 +121,34 @@ else:
 # Write a loop that asks a user to enter a series of pizza toppings, when the user inputs ‘quit’ stop asking for toppings.
 # As they enter each topping, print a message saying you’ll add that topping to their pizza.
 # Upon exiting the loop print all the toppings on the pizza pie and what the total price is (10 + 2.5 for each topping).
-# DON'T
 
 
-topping_user = input("give me a pizza topping") #"tomato"
-# topping_user = tomato
-all_toppings = []
+toppings = []
 total = 10
 
-while topping_user != "quit" :
-    print(f"{topping_user} will be added to the pizza")
-    all_toppings.append(topping_user)
-    topping_user = input("give me a pizza topping")
-
-str_toppings = " - ".join(all_toppings) #create a string all elements ...
-complete_total = total + len(all_toppings) * 2.5
-sentence = f"Here are your toppings {str_toppings} it will cost you {total}"
-print(sentence)
+while True:
+    topping = input("What is the topping that you want? ")
+    if topping == 'quit':
+        break
+    toppings.append(topping)
 
 
-print(f"") 
+for topping in toppings:
+    total += 2.5
 
+print(f"Your pizza will have {toppings}, and it will cost ${total}")
+print(toppings, total)
 
-all_toppings = ["tomato", "cheese", "pineapple"]
-"tomato - cheese - pineapple"
+# second option - without break
 
+total = float(10)
+while topping != "quit" :
+    topping = input("What is the topping that you want?")
+    toppings.append(topping)
 
-words = ['PYTHON', 'JOHN', 'HAM', 'DOE']
-
-
-if "PYTHON" in words :
-    print("I love python")
-
-"hello"in "hello world" #True
-
-sentence = input("give me another one")
-
-# ehile True :
-if "a" 
-
-
+for topping in toppings:
+    total += 2.5
+print("Your pizza will have {toppings}, and it will cost ${total}")
 
 
 
@@ -172,12 +168,15 @@ if "a"
 # At the end, print the final list.
 
 
-user_answer = input("Please state your age and age of your family")
-lst_answers = user_answer.split()
-print(lst_answers)
-for age in lst_answers :
-    age = int(age)
-
+family = ['father', 'mother', 'son']
+total_cost = 0
+for member in family:
+  age = int(input('Please, write your age: '))
+  if (age >= 3 and age <= 12):
+    total_cost += 10
+  if (age > 12):
+    total_cost += 15
+print(f'${total_cost}')
 
 
 # Exercise 10 : Sandwich Orders
@@ -189,8 +188,12 @@ for age in lst_answers :
 # As each sandwich is made, move it to the list of finished sandwiches.
 # After all the sandwiches have been made, print a message listing each sandwich that was made , such as I made your tuna sandwich.
 
-
-
+sandwich_orders = ['Tuna sandwich', 'Avocado sandwich', 'Egg sandwich', 'Sabih sandwich', 'Pastrami sandwich']
+finished_sandwiches = [] # OR list() - ?
+for sandwich in sandwich_orders:
+  finished_sandwiches.append(sandwich)
+for sandwich in finished_sandwiches:
+  print(f'Your {sandwich} is ready!')
 
 
 # Exercise 11 : Sandwich Orders#2
@@ -199,4 +202,9 @@ for age in lst_answers :
 # Add code near the beginning of your program to print a message saying the deli has run out of pastrami, and then use a while loop to remove all occurrences of ‘pastrami’ from sandwich_orders.
 # Make sure no pastrami sandwiches end up in finished_sandwiches.
 
-
+sandwich_orders = ['Pastrami sandwich', 'Tuna sandwich', 'Pastrami sandwich', 'Avocado sandwich', 'Pastrami sandwich', 'Egg sandwich', 'Sabih sandwich']
+print('Sorry, but we are out of pastrami.')
+no_pastrami = sandwich_orders[:]
+while ('Pastrami sandwich' in no_pastrami):
+   no_pastrami.remove('Pastrami sandwich')
+print(no_pastrami)

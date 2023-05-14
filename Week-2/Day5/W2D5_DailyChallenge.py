@@ -11,3 +11,15 @@ words = sorted(words)
 print(words)
 new_words = ','.join(word for word in words)
 print(new_words)
+
+
+# VARIANT2
+def retrieve_string_sorted(words) :
+    word_list = words.split(",")
+    new_strings = ",".join([word for word in word.list.sort()])
+    # new_string = ",".join(sorted(word_list))
+    print(new_strings)
+
+# retrieve_string_sorted("without, hello, bag. world")
+
+

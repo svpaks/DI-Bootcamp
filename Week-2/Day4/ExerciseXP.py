@@ -113,6 +113,45 @@ show_magicians(magician_names)
 # Bonus: Give the temperature as a floating-point number instead of an integer.
 # Bonus: Instead of asking for the season, ask the user for the number of the month (1 = January, 12 = December). Determine the season according to the month.
 
+import random
 
-def get_random_temp() :
-    
+def get_random_temp(season):
+    if season == 'winter':
+        return round(random.uniform(-10, 16), 1)
+    elif season == 'spring' or season == 'autumn' or season == 'fall':
+        return round(random.uniform(0, 23), 1)
+    elif season == 'summer':
+        return round(random.uniform(16, 40), 1)
+    else:
+        return "Invalid season"
+
+def main():
+    month = int(input("Enter the number of the month (1-12): "))
+    if month in [12, 1, 2]:
+        season = 'winter'
+    elif month in [3, 4, 5]:
+        season = 'spring'
+    elif month in [6, 7, 8]:
+        season = 'summer'
+    elif month in [9, 10, 11]:
+        season = 'autumn'
+    else:
+        print("Invalid month")
+        return
+    temperature = get_random_temp(season)
+    if isinstance(temperature, str):
+        print(temperature)
+    else:
+        print("The temperature right now is", temperature, "degrees Celsius.")
+        if temperature < 0:
+            print("Brrr, that’s freezing! Wear some extra layers today")
+        elif temperature >= 0 and temperature < 16:
+            print("Quite chilly! Don’t forget your coat")
+        elif temperature >= 16 and temperature < 24:
+            print("The weather is pleasant")
+        elif temperature >= 24 and temperature < 32:
+            print("It's quite warm today, stay hydrated")
+        else:
+            print("It's very hot! Stay indoors if possible")
+
+main()
