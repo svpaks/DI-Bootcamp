@@ -28,7 +28,8 @@ class Circle:
         return print(3.14 * self.radius **2)
     
     def __add__(self, other_circle):
-        return self.circle_area() + other_circle.circle_area()
+        # return self.diameter + other_circle.diameter
+        return self.get_area + other_circle.diameter
         
 
 
@@ -36,13 +37,19 @@ class Circle:
 circleA = Circle.from_diameter(diameter = 4)
 circleB = Circle.from_radius(radius = 4)
 circleC = Circle(3,6)
-
+circleA.get_area()
 print(circleA.radius)
-print(circleA.diameter)
+
+print("Circle radius :", circleA.radius)
+print("Circle diameter :", circleA.diameter)
+print("Circle diameter :", circleB.diameter)
+
 print(circleC.radius)
 
-circleA.circle_area()
-circleB.circle_area()
+# circleA.circle_area()
+# circleB.circle_area()
+
+print("add", circleA + circleB)
 
 
 
