@@ -1,41 +1,51 @@
-# # I'm Sorry, I havn't done because I can't keep up with the learning process (I'll do later).
-
-
-
 # # Exercise 1 : Pets
 # # Instructions
 # # Using this code:
 
-# # class Pets():
-# #     def __init__(self, animals):
-# #         self.animals = animals
+class Pets:
+    def __init__(self, animals):
+        self.animals = animals
 
-# #     def walk(self):
-# #         for animal in self.animals:
-# #             print(animal.walk())
+    def walk(self):
+        for animal in self.animals:
+            print(animal.walk())
 
-# # class Cat():
-# #     is_lazy = True
+class Cat():
+    is_lazy = True
 
-# #     def __init__(self, name, age):
-# #         self.name = name
-# #         self.age = age
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-# #     def walk(self):
-# #         return f'{self.name} is just walking around'
+    def walk(self):
+        return f'{self.name} is just walking around'
 
-# # class Bengal(Cat):
-# #     def sing(self, sounds):
-# #         return f'{sounds}'
+class Bengal(Cat):
+    def sing(self, sounds):
+        return f'{sounds}'
 
-# # class Chartreux(Cat):
-# #     def sing(self, sounds):
-# #         return f'{sounds}'
+class Chartreux(Cat):
+    def sing(self, sounds):
+        return f'{sounds}'
+
+class Siamese(Cat):
+    pass
 
 # # Create another cat breed named Siamese which inherits from the Cat class.
 # # Create a list called all_cats, which holds three cat instances : one Bengal, one Chartreux and one Siamese.
+
+bengal_cat = Bengal("Bengal Cat", 3)
+chartreux_cat = Chartreux("Chartreux Cat", 4)
+siamese_cat = Siamese("Siamese Cat", 2)
+
+all_cats = [bengal_cat, chartreux_cat, siamese_cat]
+
 # # Those three cats are Sara’s pets. Create a variable called sara_pets which value is an instance of the Pet class, and pass the variable all_cats to the new instance.
+
+sarah_pets = Pets(all_cats)
+
 # # Take all the cats for a walk, use the walk method.
+sarah_pets.walk()
 
 
 
@@ -52,8 +62,43 @@
 
 # # Create 3 dogs and run them through your class.
 
+class Dog :
 
+    def __init__(self, name_dog, age_dog, weight_dog):
+        self.name = name_dog
+        self.age = age_dog
+        self.weight = weight_dog
 
+    def bark(self):
+        return f"{self.name} is barking"
+
+    def run_speed(self):
+        return self.weight / (self.age * 10)
+    
+    def fight(self, other_dog):
+        self_score = self.run_speed() * self.weight
+        other_dog_score = other_dog.run_speed() * other_dog.weight
+
+        if self_score > other_dog_score:
+            return f"{self.name} won the fight!"
+        elif self_score < other_dog_score:
+            return f"{other_dog.name} won the fight!"
+
+self_dog = Dog("Rex", 5, 35)
+other_dog1 = Dog("Spike", 4, 45)
+other_dog2 = Dog("Lola", 3, 50)
+
+print(self_dog.bark())
+print(other_dog1.bark())
+print(other_dog2.bark())
+
+print(f"Rex running speed is {self_dog.run_speed}")
+print(f"Spike's running speed is {other_dog1.run_speed}")
+print(f"Lola's running speed is {other_dog1.run_speed}")
+
+print(self_dog.fight(other_dog1))
+print(other_dog1.fight(other_dog2))
+print(other_dog2.fight(self_dog))
 
 
 
@@ -73,5 +118,12 @@
 # “dog_name stands on his back legs”.
 # “dog_name shakes your hand”.
 # “dog_name plays dead”.
+
+class Dog :
+
+    def __init__(self, name_dog, age_dog, weight_dog):
+        self.name = name_dog
+        self.age = age_dog
+        self.weight = weight_dog
 
 
