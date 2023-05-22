@@ -1,7 +1,3 @@
-# My_comment_I'm sorry, but i can not do this exercise.
-
-
-
 # Instructions :
 # Create a class to handle paginated content in a website. A pagination is used to divide long lists of content in a series of pages.
 
@@ -56,3 +52,56 @@
 # The methods used to change page should be chainable, so you can call them one after the other like this: p.nextPage().nextPage()
 # Please set the p.totalPages and p.currentPage attributes to the appropriate number as there cannot be a page 0.
 # If a page is outside of the totalPages attribute, then the goToPage method should go to the closest page to the number provided (e.g. there are only 5 total pages, but p.goToPage(10) is given: the p.currentPage should be set to 5; if 0 or a negative number is given, p.currentPage should be set to 1).
+
+
+import math
+
+class Pagination:
+
+    def __init__(self, items=None, page = 10):
+        self.items = items
+        self.page_size = int(page)
+        self.current_page = 1
+        self.total_pages = math.ceil(len(self.items)/self.page_size)
+
+    def get_visible_items(self):
+           return self.items[self.page_size*(self.current_page-1):self.page_size*(self.current_page)]
+
+    def next_page(self):
+        print(f"you are in the {self.current_page} page")
+        if self.current_page < self.total_pages :
+            self.current_page += 1
+            print(f"you moved to {self.current_page} page")
+        elif self.current_page == self.total_pages :
+            print("you came back to the first page")
+            self.current_page = 1
+        return self
+
+    def prev_page(self):
+        print(f"you are in the {self.current_page} page")
+        if self.current_page > 1 :
+            self.current_page -= 1
+            print(f"you moved to {self.current_page} page")
+        else :
+            print(f"you requested a wrong page")
+            self.current_page = self.total_pages
+            print(f"you moved to {self.current_page} page")
+        return self
+    
+    def go_to_page(self,page_num) :            
+        if page_num <= 0 :
+            print(f"you requested a wrong page, you moved to the first page")
+            self.current_page = 1
+        else :
+            if page_num <= self.total_pages:
+                self.current_page = page_num
+            else :
+                print(f"you requested a wrong page, you moved to the last page")
+                self.current_page = self.total_pages
+
+
+alphabetList = list("abcdefghijklmnopqrstuvwxyz")
+p = Pagination(alphabetList, 4)
+print(p.get_visible_items())
+p.next_page()
+print(p.get_visible_items())
