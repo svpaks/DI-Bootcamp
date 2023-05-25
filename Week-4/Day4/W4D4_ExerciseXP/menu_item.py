@@ -44,16 +44,20 @@ class MenuItem() :
         cursor.execute(query_user)
         connection.commit()
 
-item2 = MenuItem('Salad', 20)
-# item2.save()
-item2.update('Salad Season', 17)
+# Don't forget to test each new method when you finish the code for it.
+def main():
+    item1 = MenuItem('Burger ', 35)
+    item2 = MenuItem('Pizza', 50)
+    item3 = MenuItem('Salad', 20)
+    item1.save()
+    item2.save()
+    item3.save()
 
 
-
-
-# item = MenuItem('Burger', 35)
-
-
+if __name__ == '__main__':
+    main()
+# item1.update('Vegan Burger', 45)
+# item1.delete()
 
 
 cursor.close()
