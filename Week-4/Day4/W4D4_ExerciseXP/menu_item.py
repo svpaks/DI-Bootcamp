@@ -10,7 +10,6 @@ connection = psycopg2.connect(
 
 cursor = connection.cursor()
 
-
 class MenuItem() :
     def __init__(self, name, price = 0):
         self.name = name
