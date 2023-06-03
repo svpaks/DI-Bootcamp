@@ -18,7 +18,7 @@ def add_gif(request):
             return home(request)
     else:
         form = GifForm()
-    context = {'Form': form}
+    context = {'form': form}
     return render(request, 'add_gif.html', context)
 
 
@@ -30,7 +30,7 @@ def add_category(request):
             return home(request)
     else:
         form = CategoryForm()
-    context = {'Form': form}
+    context = {'form': form}
     return render(request, 'add_category.html', context)
 
 def category(request, category_id):
