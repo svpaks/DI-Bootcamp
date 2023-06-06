@@ -14,20 +14,20 @@ class Category(models.Model):
     def __str__(self):
             return self.name
 
-class Film(models.Model):
-    title = models.CharField(max_length=50)
-    release_date = models.DateTimeField(auto_now_add=True)
-    created_in_country : models.ForeignKey('Country', on_delete=models.CASCADE, related_name='films')                             
-    available_in_countries = models.ManyToManyField('Country')                                                      
-    category = models.ManyToManyField('Category')
-    director = models.ManyToManyField('Director')
-
-    def __str__(self):
-        return self.title
-
 class Director(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.first_name
+    
+class Film(models.Model):
+    title = models.CharField(max_length=50)
+    release_date = models.DateTimeField(auto_now_add=True)
+    created_in_country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='films')                             
+    available_in_countries = models.ManyToManyField(Country)                                                      
+    category = models.ManyToManyField(Category)
+    director = models.ManyToManyField(Director)
+
+    def __str__(self):
+        return self.title
