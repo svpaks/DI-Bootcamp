@@ -22,12 +22,14 @@ class Director(models.Model):
         return self.first_name
     
 class Film(models.Model):
+    
     title = models.CharField(max_length=50)
     release_date = models.DateTimeField(auto_now_add=True)
-    created_in_country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='films')                             
-    available_in_countries = models.ManyToManyField(Country)                                                      
-    category = models.ManyToManyField(Category)
-    director = models.ManyToManyField(Director)
+        # default = timezone.now().date()
+    created_in_country = models.ForeignKey(Country, related_name='films_created', on_delete=models.CASCADE)                             
+    available_in_countries = models.ManyToManyField(Country, related_name='films_available')                                                      
+    category = models.ManyToManyField(Category, related_name='films')
+    director = models.ManyToManyField(Director, related_name='films')
 
     def __str__(self):
         return self.title

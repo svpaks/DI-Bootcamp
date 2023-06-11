@@ -9,6 +9,7 @@ from .forms import FilmForm, DirectorForm
 
 class HomePageView(ListView) :
     template_name = 'homepage.html'
+    model = Film
     context_object_name = 'films'
 
     def get_queryset(self):

@@ -56,6 +56,12 @@ class ReviewCreateView(CreateView):
     template_name = "review/add_review.html"
     success_url = reverse_lazy("homepage")
 
+    def get_initial(self) -> Dict[str, Any]:
+        data = self.request.GET # getting data from the url (after '?')
+        film_id = int(data.get('film_id')) # getting the 'film_id'
+        film = Film.objects.get(id=film_id) # using the 'film_id' to get a specific film
+        return super().get_initial()
+
 
 class FilmUpdateView(UserPassesTestMixin, UpdateView):
     model = Film
