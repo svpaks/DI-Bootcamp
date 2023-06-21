@@ -81,3 +81,12 @@ class DirectorUpdateView(UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return self.request.user.is_superuser
+    
+    def form_valid(self, form):
+        form.instance.review_author = self.request.user
+        return super().form_valid(form)
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['review_author'] = self.request.user
+        return kwargs
