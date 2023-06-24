@@ -7,71 +7,110 @@
 //    - Be careful, each planet has a certain amount of moons. How should you display them?
 //    - Should you still use an array for the planets ? Or an array of objects ?
 
-const planets = [
-  "Mercury",
-  "Venus",
-  "Earth",
-  "Mars",
-  "Jupiter",
-  "Saturn",
-  "Uranus",
-  "Neptune",
+const allPlanets = [
+  { name: "Mercury", color: "aqua", moons: 0 },
+  { name: "Venus", color: "aquamarine", moons: 0 },
+  { name: "Earth", color: "azure", moons: 1 },
+  { name: "Mars", color: "beige", moons: 2 },
+  { name: "Jupiter", color: "bisque", moons: 13 },
+  { name: "Saturn", color: "brown", moons: 10 },
+  { name: "Uranus", color: "cadetblue", moons: 5 },
+  { name: "Neptune", color: "crimson", moons: 2 },
 ];
 
-const planetDivs = []; // an empty array to store the planet div elements
-planets.forEach((planet) => {
-  const planetDiv = document.createElement("div"); // a div element for the planet
-  planetDiv.classList.add("planet");
-  planetDivs.push(planetDiv); // add the planet div to the array
-});
+// const allPlanet = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"];
 
-const planetsSection = document.getElementById("planetsSection");
+function addPlanet() {
+  const section = document.querySelector(".listPlanets");
+  for (let planet of allPlanets) {
+    const divPlanet = document.createElement("div");
+    divPlanet.classList.add("planet");
+    const text = document.createTextNode(planet["name"]);
 
-planets.forEach((planet, index) => {
-  const planetDiv = document.createElement("div");
-  planetDiv.classList.add("planet");
-  const planetClass = `planet-${index + 1}`;
-  planetDiv.classList.add(planetClass);
-  planetDiv.textContent = planet;
+    divPlanet.appendChild(text);
+    divPlanet.style.backgroundColor = planet["color"];
+    section.appendChild(divPlanet);
+    // let counter = 10;
+    // for (let i = 0; i < planet["moons"]; i++) {
+    //     const divMoon = document.createElement("div");
+    //     divMoon.classList.add("moon");
+    //     divMoon.style.left += `${counter}rem`;
+    //     counter += 5
+    //     section.appendChild(divMoon);
+    // }
+    addMoon(planet, section);
+  }
+}
 
-  // Append the planet div to the planets section
-  planetsSection.appendChild(planetDiv);
-});
+function addMoon(planet, section) {
+  let counter = 10;
+  for (let i = 0; i < planet["moons"]; i++) {
+    const divMoon = document.createElement("div");
+    divMoon.classList.add("moon");
+    divMoon.style.left += `${counter}rem`;
+    counter += 5;
+    section.appendChild(divMoon);
+  }
+}
 
-// BONUS
+addPlanet();
 
-const planets2 = [
-  {
-    name: "Mercury",
-    moons: ["Moon of Mercury 1", "Moon of Mercury 2"],
-  },
-  {
-    name: "Venus",
-    moons: ["Moon of Venus 1", "Moon of Venus 2", "Moon of Venus 3"],
-  },
-];
+// My desision
 
-const planetsSection2 = document.getElementById("planetsSection2");
+// const planetDivs = []; // an empty array to store the planet div elements
+// planets.forEach((planet) => {
+//   const planetDiv = document.createElement("div"); // a div element for the planet
+//   planetDiv.classList.add("planet");
+//   planetDivs.push(planetDiv); // add the planet div to the array
+// });
 
-planets.forEach((planet, index) => {
-  const planetDiv = document.createElement("div");
-  planetDiv.classList.add("planet");
-  const planetClass = `planet-${index + 1}`;
-  planetDiv.classList.add(planetClass);
-  planetDiv.textContent = planet.name;
+// const planetsSection = document.getElementById("planetsSection");
 
-  // Create a separate div to display the moons
-  const moonsDiv = document.createElement("div");
-  moonsDiv.classList.add("moons");
-  planet.moons.forEach((moon) => {
-    const moonDiv = document.createElement("div");
-    moonDiv.textContent = moon;
-    moonsDiv.appendChild(moonDiv);
-  });
+// planets.forEach((planet, index) => {
+//   const planetDiv = document.createElement("div");
+//   planetDiv.classList.add("planet");
+//   const planetClass = `planet-${index + 1}`;
+//   planetDiv.classList.add(planetClass);
+//   planetDiv.textContent = planet;
 
-  // Append the moons div to the planet div
-  planetDiv.appendChild(moonsDiv);
+//   // Append the planet div to the planets section
+//   planetsSection.appendChild(planetDiv);
+// });
 
-  // Append the planet div to the planets section
-  planetsSection.appendChild(planetDiv);
-});
+// // BONUS
+
+// const planets2 = [
+//   {
+//     name: "Mercury",
+//     moons: ["Moon of Mercury 1", "Moon of Mercury 2"],
+//   },
+//   {
+//     name: "Venus",
+//     moons: ["Moon of Venus 1", "Moon of Venus 2", "Moon of Venus 3"],
+//   },
+// ];
+
+// const planetsSection2 = document.getElementById("planetsSection2");
+
+// planets.forEach((planet, index) => {
+//   const planetDiv = document.createElement("div");
+//   planetDiv.classList.add("planet");
+//   const planetClass = `planet-${index + 1}`;
+//   planetDiv.classList.add(planetClass);
+//   planetDiv.textContent = planet.name;
+
+//   // Create a separate div to display the moons
+//   const moonsDiv = document.createElement("div");
+//   moonsDiv.classList.add("moons");
+//   planet.moons.forEach((moon) => {
+//     const moonDiv = document.createElement("div");
+//     moonDiv.textContent = moon;
+//     moonsDiv.appendChild(moonDiv);
+//   });
+
+//   // Append the moons div to the planet div
+//   planetDiv.appendChild(moonsDiv);
+
+//   // Append the planet div to the planets section
+//   planetsSection.appendChild(planetDiv);
+// });
