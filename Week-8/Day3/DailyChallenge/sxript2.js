@@ -16,7 +16,7 @@ const Inventory = [
   ];
 
   function getCarHonda(carInventory) {
-    const hondaCar = carInventory.find(car => car.car_make === "Honda");
+    const hondaCar = carInventory.find(element => element.car_make === "Honda");
 
     if (hondaCar) {
         return `This is a ${hondaCar.car_make} ${hondaCar.car_model} from ${hondaCar.car_year}.`;
@@ -54,3 +54,25 @@ const Inventory = [
 //   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
 //   { id: 4, car_make: "Land Rover", car_model: "Defender Ice Edition", car_year: 2010 },
 // ];
+
+function compareFunc(a, b) {
+  if (a.car_year > b.car_year) {
+    return 1
+  } else if (a.car_year < b.car_year) {
+    return -1
+  } else {
+    return 0
+  }
+}
+
+function compareCar(carInventory) {
+  // carInventory.sort(compareFunc)
+  // console.log(carInventory);
+  carInventory.sort((a, b) => a.car_year - b.car_year)
+  console.log(carInventory);
+}
+compareCar(Inventory);
+
+
+
+
