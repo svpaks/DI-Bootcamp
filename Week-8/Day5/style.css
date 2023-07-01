@@ -1,0 +1,84 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+header{
+    border: 2px solid #034b4582;
+    background-color: #6947e4c0;
+    padding: 10px;
+}
+
+body {
+    background-image: url(./circuit-pattern.png);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.width-20 {
+    min-width: 20vw;
+    max-width: 50vw;
+}
+/* 
+nav{
+    border: 1px solid red;
+    height:60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+} */
+
+#title{
+    font-size: 30px;
+    margin:10px;
+    font-weight: bold;
+    font-family: 'Megabot Five', sans-serif;
+}
+
+#search-bar {
+    width: 50%;
+    display: flex;
+}
+
+#search-bar input[type="text"] {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+.name {
+    font-family: 'Megabot Five', sans-serif;
+    font-size: 20px;
+}
+
+.email {
+    font-family: 'SEGA LOGO FONT', sans-serif;
+    font-size: 15px;
+}
+
+.card{
+    border: 2px solid black;
+    margin:10px;
+    background-color: rgb(154, 198, 194);
+    background-image: url(./card-pattern.png);
+}
+
+#container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+ 
+img{
+    border-radius: 50%;
+}
