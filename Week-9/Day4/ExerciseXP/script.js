@@ -14,7 +14,7 @@ async function getPerson() {
     const number = Math.floor(Math.random() * 84) + 1; // create a way to choose the character randomly with the build-in math function
     const response = await fetch(`https://www.swapi.tech/api/people/${number}`); // create a variable which is responsible for receiving number of person from the API
 
-    if (response.ok) {
+    if (response.ok) { // if JSON file will contain "ok" the code inside will run
       const starwarsdata = await response.json(); // convert the data from API to JSON type
       const name = starwarsdata.result.properties["name"]; // get data of name from JSON file "starwarsdata" addressing to key
       const height = starwarsdata.result.properties["height"]; // get data of height from JSON file "starwarsdata" addressing to key
@@ -44,7 +44,7 @@ async function getPerson() {
       const homeworldParagraph = document.createElement("p"); // create paragraph in the HTML file which consists the data of homeworld
       homeworldParagraph.textContent = `Homeworld: ${homeworld}`; // fill the paragraph ...
 
-      deleteInfo();
+      deleteInfo(); // It needs to replace information about one person with information about another
 
       // Append elements to personInfo div
       personInfo.appendChild(title); // add the data about person's name to display on the webpage
@@ -54,13 +54,14 @@ async function getPerson() {
       personInfo.appendChild(homeworldParagraph); // add the data about person's homeworld to display on the webpage
     } else {
       console.log("in error");
-      throw new Error("That person isn't available");
+      throw new Error("That person isn't available"); // if JSON file will NOT contain "ok"
     }
   } catch (error) {
-    console.log("error");
+    console.log("error"); // It also means the error, but I do not understand why we need it
   }
 }
 
+// Replace information about one person with information about another
 function deleteInfo() {
   const divInfo = document.getElementById("person_info");
   divInfo.textContent = "";
