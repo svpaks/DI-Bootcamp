@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+}
+
+.language-item {
+    justify-content: space-between;
+    background-color: lightblue;
+    padding: 10px 40px;
+    width: 300px;
+    margin: 2px;
+    border-radius: 5px;
+    border: 1px solid black;
+    display: flex;
+}
+
+.languages {
+    height: 400px;
+    width: 400px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-style {
+    background-color: lightblue;
+    border: none;
+    color: rgb(206, 28, 161);
+    font-size: large;
+}
